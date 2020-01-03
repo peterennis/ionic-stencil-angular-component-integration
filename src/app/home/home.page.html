@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -10,5 +10,30 @@
 </ion-header>
 
 <ion-content>
+
+  <!--
+    Ref: https://stackoverflow.com/questions/54462110/angular-7-integration-with-stenciljs-problem-cannot-find-module-test-componen
+    Ref: https://stenciljs.com/docs/angular
+
+    You need to install the webcomponent first in your project.
+    npm install @adaept/ae-icons-component
+
+    Steps to integrate aeicons stencil webcomponent for Angular are as follows:
+
+    1. Install component in angular project (npm install <module-name>)
+    2. Enable custom element schema in app.module.ts
+      (import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';)
+      (schemas: [CUSTOM_ELEMENTS_SCHEMA])
+    3. Import component in app.component.ts
+      (import * as <name> from 'test-components/dist/loader';)
+      e.g. import * as AeIconsComponent from '@adaept/ae-icons-component/dist/loader';
+    4. Register component to the registry e.g. main.ts
+      (<name>.defineCustomElements(window);)
+      import { defineCustomElements } from '@adaept/ae-icons-component/dist/loader';
+    5. Use selector of your stencil component wherever you want in your project
+      e.g. <ae-icons-component aesize="ae32" name="baseball" color="yellow"></ae-icons-component>
+
+    This commit:
+    -->
 
 </ion-content>
